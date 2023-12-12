@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter (DOLLAR TO RUPEES)</title>
+   
+</head>
+<body>
+
+<h2>Currency Converter</h2>
+
+<form id="converterForm">
+    <label for="dollars">Amount in Dollars:</label>
+    <input type="number" id="dollars" required step="any">
+    
+    <button type="button" onclick="convertCurrency()">Convert to Rupees</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+    function convertCurrency() {
+       
+        var dollars = parseFloat(document.getElementById('dollars').value);
+
+        if (isNaN(dollars) || dollars < 0) {
+            document.getElementById('result').textContent = "Invalid input. Please enter a valid non-negative numeric value for the amount in dollars.";
+        } else {
+            
+            var conversionRate = 180; 
+
+         
+            var rupees = dollars * conversionRate;
+
+           
+            document.getElementById('result').textContent = dollars + " Dollars is approximately " + rupees.toFixed(2) + " Rupees.";
+        }
+    }
+</script>
+
+</body>
+</html>

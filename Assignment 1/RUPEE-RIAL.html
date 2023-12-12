@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+   
+</head>
+<body>
+
+<h2>Currency Converter</h2>
+
+<form id="converterForm">
+    <label for="rupees">Amount in Rupees:</label>
+    <input type="number" id="rupees" required step="any">
+    
+    <button type="button" onclick="convertCurrency()">Convert to Rials</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+    function convertCurrency() {
+     
+        var rupees = parseFloat(document.getElementById('rupees').value);
+
+    
+        if (isNaN(rupees) || rupees < 0) {
+            document.getElementById('result').textContent = "Invalid input. Please enter a valid non-negative numeric value for the amount in rupees.";
+        } else {
+           
+            var conversionRate = 0.045; 
+
+            var rials = rupees * conversionRate;
+
+            document.getElementById('result').textContent = rupees + " Rupees is approximately " + rials.toFixed(2) + " Rials.";
+        }
+    }
+</script>
+
+</body>
+</html>
